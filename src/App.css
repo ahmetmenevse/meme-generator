@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  margin: 0;
+}
+
+main {
+  padding: 36px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 65px;
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  color: white;
+  padding: 20px;
+} 
+
+.troll-face {
+  height: 150%;
+  margin-right: 6px;
+}
+
+.header-title {
+  margin-right: auto;
+  font-size: 1.25rem;
+}
+
+.header-project {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.form {
+  display: grid;
+  grid-template: 40px 40px / 1fr 1fr;
+  gap: 20px;
+  padding: 40px 60px;
+  text-transform: capitalize;
+}
+
+.form-input{
+  text-transform: capitalize;
+  padding-left: 15px;
+  border: 1px solid  #D5D4D8;
+  border-radius: 5px;
+  font-family: "Karla", sans-serif;
+  text-indent: 5px;
+}
+
+.button {
+  grid-column: 1 / -1;
+  font-size: 1rem;
+  font-weight:bold;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  cursor: pointer;
+}
