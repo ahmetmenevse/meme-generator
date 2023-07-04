@@ -63,3 +63,11 @@ main {
   background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
   cursor: pointer;
 }
+
+.meme-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 91%;
+  border-radius: 10px;
+}
