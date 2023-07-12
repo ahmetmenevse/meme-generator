@@ -1,42 +1,48 @@
-import React from 'react'
-import memesData from '../memesData'
+
+import React, {useEffect} from 'react'
+
 const Meme = () => {
-
-// const [memeImage, setMemeImage] = React.useState("")
-
 const [meme, setMeme] = React.useState({
   topText: "",
   bottomText: "",
   randomImage: "http://i.imgflip.com/1bij.jpg"
 })
 
-const [allMemeImages, setAllMemeImages] = React.useState(memesData)
+const [allMemeImages, setAllMemeImages] = React.useState([])
+
+useEffect(() => {
+  async function getMemes () {
+    const res = await fetch("https://api.imgflip.com/get_memes")
+    const data = await res.json()
+    setAllMemeImages(data.data.memes)
+  }
+
+  getMemes()
+}, [])
 
 function getImage() {
-  const randomMeme = allMemeImages.data.memes
-  const randomIndex = Math.floor(Math.random() * randomMeme.length)
-  const url = randomMeme[randomIndex].url
-
-  setMeme(prevMeme => ({
-    ...prevMeme,
-    randomImage: url
-  }))
+  const randomIndex = Math.floor(Math.random() * allMemeImages.length)
+  const url = allMemeImages[randomIndex].url
+    setMeme(prevMeme => ({
+      ...prevMeme,
+      randomImage: url
+    }))
 }
 
 function handleChange(event) {
-  const{name, value, type} = event.target
+  const{name, value} = event.target
   setMeme(prevMeme => ({
     ...prevMeme,
     [name] : value
   }))
 }
 
-console.log(meme)
+
   return (
     <main>
       <div className='form'>
         <input 
-          type='text' 
+          type='text'
           placeholder='top text' 
           className='form-input'
           onChange={handleChange}
